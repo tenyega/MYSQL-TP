@@ -19,19 +19,26 @@ if (isset($_SESSION['name'])) {
             } else {
                 echo "database is empty";
             }
-            $sql = "INSERT INTO posts (img,title, user_id, content) VALUES (:img,:title,:userid,:content);";
-
-
-            $stmt = $connexionPDO->prepare($sql);
-            $img =  $_SESSION['img'] ?? '';
-            $stmt->bindParam(':img', $img, PDO::PARAM_STR);
-            $stmt->bindParam(':title',  $_SESSION['title'], PDO::PARAM_STR);
-            $stmt->bindParam(':userid', $userId->id, PDO::PARAM_STR);
-            $stmt->bindParam(':content',  $_SESSION['content'], PDO::PARAM_STR);
+            if (isset($_POST['img']) && ($_POST['img'] != '')) {
+                $sql = "INSERT INTO posts (img,title, user_id, content) VALUES (:img,:title,:userid,:content);";
+                $stmt = $connexionPDO->prepare($sql);
+                $stmt->bindParam(':img', $_SESSION['img'], PDO::PARAM_STR);
+                $stmt->bindParam(':title',  $_SESSION['title'], PDO::PARAM_STR);
+                $stmt->bindParam(':userid', $userId->id, PDO::PARAM_STR);
+                $stmt->bindParam(':content',  $_SESSION['content'], PDO::PARAM_STR);
+            } else {
+                $sql = "INSERT INTO posts (title, user_id, content) VALUES (:title,:userid,:content);";
+                $stmt = $connexionPDO->prepare($sql);
+                $stmt->bindParam(':title',  $_SESSION['title'], PDO::PARAM_STR);
+                $stmt->bindParam(':userid', $userId->id, PDO::PARAM_STR);
+                $stmt->bindParam(':content',  $_SESSION['content'], PDO::PARAM_STR);
+            }
 
 
             if ($stmt->execute()) {
-                echo "<h2 class='header>Data saved successfully</h2>";
+
+                echo "<h2 class='valid center'>Data saved successfully</h2>";
+                echo $_SESSION['img'];
             } else {
                 echo "<h2 class='error'>Login details not found</h2> ";
             }

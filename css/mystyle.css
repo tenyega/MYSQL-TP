@@ -69,14 +69,19 @@
   color: green;
   font-size: 0.9em;
 }
+
+.center {
+  text-align: center;
+}
 /* CARD CSS */
 
 /* Style for the card container */
 .cardContainer {
   text-align: center; /* Center inline-block elements horizontally */
   line-height: 200px; /* Set a line height equal to container height for vertical centering */
-  height: 200px; /* Fixed height for container */
+  height: auto; /* Allow container height to adjust based on content */
 }
+
 .card {
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -92,7 +97,8 @@
 /* Style for the card image */
 .card-img {
   width: 100%;
-  height: auto;
+  height: 200px; /* Set a fixed height for all images */
+  object-fit: cover; /* Ensures images cover the area while maintaining aspect ratio */
   display: block;
 }
 

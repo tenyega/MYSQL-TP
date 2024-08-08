@@ -9,16 +9,18 @@ try {
         $connexionPDO = new PDO($dsn, DB_USER, DB_PASSWORD);
 
         $connexionPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $emailFound = "SELECT * FROM users WHERE email='" . $_SESSION['email'] . "';";
-        $emailCheck= $connexionPDO->query($emailFound);
-        if (isset($emailCheck)) {
+        $emailsql = "SELECT * FROM users WHERE email='" . $_SESSION['email'] . "';";
+        $emailquery = $connexionPDO->query($emailsql);
+        $emailfound = $emailquery->fetch(PDO::FETCH_OBJ);
+        if (isset($emailfound->email)) {
             echo "<h2 class='error'>email already in use</h2> ";
             echo "<script>window.onload = function() { document.getElementById('myForm').reset(); };</script>";
         }
-        $userFound = "SELECT * FROM users WHERE nom='" . $_SESSION['user'] . "';";
-        $userCheck= $connexionPDO->query($userFound);
+        $usersql = "SELECT * FROM users WHERE nom='" . $_SESSION['user'] . "';";
+        $userquery = $connexionPDO->query($usersql);
+        $userfound = $userquery->fetch(PDO::FETCH_OBJ);
 
-        if (isset($userCheck)) {
+        if (isset($userfound->nom)) {
             echo "<h2 class='error'>user name already in use</h2> ";
             echo "<script>window.onload = function() { document.getElementById('myForm').reset(); };</script>";
         }
@@ -31,7 +33,7 @@ try {
 
 
         if ($stmt->execute()) {
-            echo "Data saved successfully";
+            echo "<h2 class='valid center'>Data saved successfully</h2>";
         } else {
             echo "<h2 class='error'>Login details not found</h2> ";
         }

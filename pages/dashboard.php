@@ -22,8 +22,9 @@ try {
 
         $results = mysqli_query($connection, $sql);
         $otherResults =  mysqli_query($connection, $sql2);
+        echo '<div class="cardContainer">';
         if (mysqli_num_rows($results) > 0) {
-            echo '<div class="cardContainer">';
+
             // Assuming $results is the result of a query execution
             while ($rows = mysqli_fetch_assoc($results)) {
                 // Display the posts for the user
@@ -38,25 +39,25 @@ try {
                 </div>
             </div>';
             }
-            echo '<br> <h1 class="header"> OTHER POPULAR POSTS </h1>';
-            if (mysqli_num_rows($otherResults) > 0) {
-                // Assuming $results is the result of a query execution
-                while ($otherRows = mysqli_fetch_assoc($otherResults)) {
-                    echo '
-                <div class="card">
-                    <img src="' . htmlspecialchars($otherRows["img"]) . '" alt="Image" class="card-img">
-                    <div class="card-body">
-                        <h2 class="card-title">' . htmlspecialchars($otherRows["title"]) . '</h2>
-                        <p class="card-content">' . htmlspecialchars($otherRows["content"]) . '</p>
-                        <p class="card-content">' . htmlspecialchars($otherRows["date_publication"]) . '</p>
-
-                    </div>
-                </div>';
-                }
-                echo '</div>';
-            }
-            echo "</div>";
         }
+        if (mysqli_num_rows($otherResults) > 0) {
+            echo '<br> <h1 class="header"> OTHER POPULAR POSTS </h1>';
+            // Assuming $results is the result of a query execution
+            while ($otherRows = mysqli_fetch_assoc($otherResults)) {
+                echo '
+            <div class="card">
+                <img src="' . htmlspecialchars($otherRows["img"]) . '" alt="Image" class="card-img">
+                <div class="card-body">
+                    <h2 class="card-title">' . htmlspecialchars($otherRows["title"]) . '</h2>
+                    <p class="card-content">' . htmlspecialchars($otherRows["content"]) . '</p>
+                    <p class="card-content">' . htmlspecialchars($otherRows["date_publication"]) . '</p>
+
+                </div>
+            </div>';
+            }
+            echo '</div>';
+        }
+        echo "</div>";
     } else {
         echo "<h2 class='header'>PLEASE LOG IN</h2>";
         header("Location:index.php?pg=login");

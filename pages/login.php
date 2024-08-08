@@ -50,7 +50,6 @@ try {
             <input type="password" id="pwd" name="pwd">
         </p>
 
-        <input type="hidden" name="hidden" value="<?php echo date('d/m/Y H:i:s'); ?>">
         <input type="submit" name="submit" value="Envoyer">
 
 
