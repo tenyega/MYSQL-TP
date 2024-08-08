@@ -1,0 +1,157 @@
+/*HEADER */
+.header {
+  text-align: center;
+}
+
+/* LOGIN FORM AND REGISTER FORM CSS */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  align-items: center;
+}
+.form p {
+  margin-bottom: 15px;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.form p.message {
+  font-size: 1.2em;
+  color: #333;
+}
+.error {
+  color: red;
+  font-size: 0.9em;
+  text-align: center;
+}
+.valid {
+  color: green;
+  font-size: 0.9em;
+}
+/* CARD CSS */
+
+/* Style for the card container */
+.cardContainer {
+  text-align: center; /* Center inline-block elements horizontally */
+  line-height: 200px; /* Set a line height equal to container height for vertical centering */
+  height: 200px; /* Fixed height for container */
+}
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 10px;
+  padding: 10px;
+  width: 300px; /* Adjust width as needed */
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* Style for the card image */
+.card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Style for the card body */
+.card-body {
+  padding: 10px;
+}
+
+/* Style for the card title */
+.card-title {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+/* Style for the card content */
+.card-content {
+  font-size: 1em;
+  color: #333;
+}
+
+/*CREATE POST FORM*/
+.form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.form-group input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-group input[type="submit"]:hover {
+  background-color: #0056b3;
+}
