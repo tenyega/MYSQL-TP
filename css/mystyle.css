@@ -2,16 +2,21 @@
 .header {
   text-align: center;
 }
-
+.navbar {
+  background-color: #808080b8;
+  gap: 0.5rem;
+}
 /* LOGIN FORM AND REGISTER FORM CSS */
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0.5rem;
 }
 
 .form {
   background: #fff;
+  margin: 0.5rem;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -38,7 +43,7 @@
 }
 
 .form input[type="submit"] {
-  background-color: #4caf50;
+  background-color: #3399cc;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -48,7 +53,7 @@
 }
 
 .form input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: #3399cc;
 }
 
 .form p.message {

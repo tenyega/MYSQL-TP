@@ -22,7 +22,7 @@ https://templatemo.com/tm-556-catalog-z
 <body>
     <!-- Page Loader -->
 
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <i class="fas fa-film mr-2"></i>
@@ -39,10 +39,13 @@ https://templatemo.com/tm-556-catalog-z
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="index.php?pg=create_post" data-no="2">Create Post</a>
                     </li>
+                    <?php if (!isset($_SESSION['name'])) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.php?pg=login" data-no="3">Login</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.php?pg=login" data-no="3">Login</a>
-                    </li>
+                    <?php } ?>
+
 
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="index.php?pg=logout" data-no="4">Logout</a>

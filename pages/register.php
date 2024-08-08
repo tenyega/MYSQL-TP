@@ -1,9 +1,4 @@
 <?php
-
-
-
-// connection to the base de donnée
-
 try {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Store the form values in session variables
@@ -14,12 +9,15 @@ try {
         $connexionPDO = new PDO($dsn, DB_USER, DB_PASSWORD);
 
         $connexionPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $emailCheck = "SELECT * FROM users WHERE email='" . $_SESSION['email'] . "';";
+        $emailFound = "SELECT * FROM users WHERE email='" . $_SESSION['email'] . "';";
+        $emailCheck= $connexionPDO->query($emailFound);
         if (isset($emailCheck)) {
             echo "<h2 class='error'>email already in use</h2> ";
             echo "<script>window.onload = function() { document.getElementById('myForm').reset(); };</script>";
         }
-        $userCheck = "SELECT * FROM users WHERE nom='" . $_SESSION['user'] . "';";
+        $userFound = "SELECT * FROM users WHERE nom='" . $_SESSION['user'] . "';";
+        $userCheck= $connexionPDO->query($userFound);
+
         if (isset($userCheck)) {
             echo "<h2 class='error'>user name already in use</h2> ";
             echo "<script>window.onload = function() { document.getElementById('myForm').reset(); };</script>";
